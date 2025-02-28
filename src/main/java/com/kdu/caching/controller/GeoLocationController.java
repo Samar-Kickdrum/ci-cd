@@ -32,6 +32,11 @@ public class GeoLocationController {
         return new ResponseEntity<>(geoCode, HttpStatus.OK);
     }
 
+    @GetMapping("/health-check")
+    public String healthCheck(){
+        return "Service is up and running";
+    }
+
     /**
      * Get reverse geo response entity.
      *
