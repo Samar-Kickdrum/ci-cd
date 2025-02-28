@@ -1,21 +1,14 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
-      java: corretto17
-  pre_build:
-    commands:
-      - echo "Installing dependencies..."
-      - mvn clean install
+      java: corretto21
   build:
     commands:
-      - echo "Building the application..."
-      - mvn package
-  post_build:
-    commands:
-      - echo "Build completed!"
-      - mv target/*.jar app.jar
+      - echo "Building the project..."
+      - mvn clean package
+      - cp target/*.jar application.jar
 artifacts:
   files:
-    - app.jar
+    - application.jar
+  discard-paths: yes
